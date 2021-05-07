@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3 class="text-center mt-5 mb-5">Ordering</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Image</th>
+      <th scope="col">Price</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Fital price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in cart.products.all %}
+    <tr>
+      <th scope="row">{{ item.content_object.title }}</th>
+      <td><img class="w-25" src="{{ item.content_object.image.url }}" class="img-fluid"></td>
+      <td>${{ item.content_object.price }}</td>
+      <td>{{ item.qty }} </td>
+      <td>${{ item.final_price }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="3"></td>
+      <td>Total:</td>
+      <th scope="col">${{ cart.final_price }}</th>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h3 class="text-center mt-5 mb-5">Ordering form</h3>
+<form action="{% url 'make_order' %}" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-success btn-block mb-5" value="To order">
+</form>
+
+
+{% endblock content %}
