@@ -1,6 +1,6 @@
 # Shop</br>
 
-First pen attempts to create an e-commerce site in Django.</br>
+My first project in the field of e-commerce. One of my first projects that I created while studying Python and Django.</br>
 
 ![alt text](img/main.png)
 
