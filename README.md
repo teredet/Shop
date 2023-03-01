@@ -17,7 +17,7 @@ git clone https://github.com/teredet/Shop
 ```
 * Install requirements
 ```Shell
-    cd Parser
+    cd Shop
     pip install -r requirements.txt
 ```
 * Run program
